@@ -6,25 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>lista de tarefas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet">
 </head>
-
+ 
 <body>
     <div class="tudo">
         <div id="divisao">
             <h1>Adicionar Tarefas</h1>
             <input type="text" name="descricao" id="descricao">
             <br>
-            <input type="button" value="Adicionar" id="adicionar">
+            <input type="button" value="Adicionar" id="adicionar" onclick="adicionar()">
             <h2>Tarefas Pendentes</h2>
             <ul id="tarefas">
             </ul>
             <br>
             <h2>Tarefas Finalizadas</h3>
-                <ul id="finalizadas">
-                </ul>
+            <ul id="finalizadas"></ul>
         </div>
     </div>
-
 
     <script type="text/javascript" src="script.js"></script>
 </body>
