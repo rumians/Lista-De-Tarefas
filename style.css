@@ -21,3 +21,9 @@
     height: 925px;
     width: 100%;
 }
+
+#descricao {
+    height: 30px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 30px;
+}

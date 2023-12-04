@@ -1,7 +1,7 @@
 let add = document.getElementById("descricao");
 let pendentes = document.getElementById("tarefas");
 let finalizadas = document.getElementById("finalizadas");
-let blud = ""
+let blud = "";
 
 
 add.addEventListener("change", function () {
@@ -9,10 +9,15 @@ add.addEventListener("change", function () {
 })
 
 function adicionar() {
-    pendentes.innerHTML += `<li> ${blud} <button onclick="finalizar()" >Finalizar</button> </li> `;
+    const novoItem = document.createElement('li');
+    novoItem.innerHTML += `${blud} <button onclick="finalizar(this.parentElement)" >Finalizar</button>`;
+    pendentes.appendChild(novoItem);
 }
 
-function finalizar() {
+function finalizar(itemdalista) {
     finalizadas.innerHTML += `<li> ${blud} </li>`;
-    pendentes.
+    itemdalista.style.display = "none";
 }
+
+
+
