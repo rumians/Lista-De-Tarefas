@@ -10,8 +10,8 @@ add.addEventListener("change", function () {
 
 function adicionar() {
     const novoItem = document.createElement('li');
-    novoItem.innerHTML += `${valoradd} <button onclick="finalizar(this.parentElement)" >Finalizar</button>  <button onclick="Apagar(this.parentElement)" >Apagar</button>`;
     pendentes.appendChild(novoItem);
+    novoItem.innerHTML += `${valoradd} <button onclick="finalizar(this.parentElement)" >Finalizar</button>  <button onclick="Apagar(this.parentElement)" >Apagar</button>`;
 }
 
 function finalizar(itemdalista) {
