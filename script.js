@@ -1,7 +1,6 @@
 let add = document.getElementById("descricao");
 let pendentes = document.getElementById("tarefas");
 let finalizadas = document.getElementById("finalizadas");
-let btnApagar = '';
 let valoradd = "";
 
 function adicionar() {
@@ -9,29 +8,56 @@ function adicionar() {
     const novoItem = document.createElement('li');
     const textoItem = valoradd;
     novoItem.innerHTML += textoItem;
-    btnApagar = document.createElement("button");
-    btnApagar.textContent="Apagar";
+    
+    let btnApagar = document.createElement("button");
+    btnApagar.textContent = "Apagar";
+
     let btnFim = document.createElement("button");
-    btnFim.textContent="Finalizar";
+    btnFim.textContent = "Finalizar";
     
     btnFim.addEventListener("click", function() {
-        finalizar(textoItem);
-        Apagar(textoItem);
-    })
+        finalizar(textoItem, novoItem);
+    });
+
+    btnApagar.addEventListener("click", function() {
+        apagar(novoItem);
+    });
 
     novoItem.appendChild(btnFim);
+    novoItem.appendChild(btnApagar);
+
     pendentes.appendChild(novoItem);
     add.focus();
     add.value = "";
 }
 
-function finalizar(itemdalista) {
-    finalizadas.innerHTML += `<li> ${itemdalista} </li>`;
+function finalizar(textoItem, itemPendente) {
+    const novoItemFinalizado = document.createElement('li');
+    novoItemFinalizado.innerHTML += textoItem;
+
+    let btnApagarFinalizada = document.createElement("button");
+    btnApagarFinalizada.textContent = "Apagar";
     
+    btnApagarFinalizada.addEventListener("click", function() {
+        apagarfinalizadas(novoItemFinalizado);
+    });
+
+    novoItemFinalizado.appendChild(btnApagarFinalizada);
+    finalizadas.appendChild(novoItemFinalizado);
+
+    pendentes.removeChild(itemPendente);
+}
+
+function apagar(itemPendente) {
+    pendentes.removeChild(itemPendente);
+}
+
+function apagarfinalizadas(itemfinalizadas) {
+    finalizadas.removeChild(itemfinalizadas);
 }
 
 add.addEventListener("keypress", (e) => {
     if (e.key == "Enter") {
         adicionar();
     }
-})
+});
